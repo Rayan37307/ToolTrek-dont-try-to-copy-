@@ -18,11 +18,9 @@ const userSchema = mongoose.Schema({
         type:String,
         required:true,
         minlength:6,
-        maxlength : 20
     },
     photo:{
         type : String,
-        required : true,
         default:"https://avatar.iran.liara.run/public"
     },
     phone:{
@@ -31,7 +29,6 @@ const userSchema = mongoose.Schema({
     },
     country:{
         type:String,
-        required:true
     },
     businessname:{
         type:String 
