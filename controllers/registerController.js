@@ -1,5 +1,8 @@
 import {User} from '../models/userModel.js'
 import bcrypt from 'bcryptjs'
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken'
+dotenv.config();
 // controllers/registerController.js
 export const registerController = async (req, res) => {
     const {name, email, password} = req.body;
@@ -16,6 +19,8 @@ export const registerController = async (req, res) => {
         email,
         password: hashedPassword
     })
-
-        res.send(user)
+    res.status(200)
+    // const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY);
+    // res.cookie('jwt', token, { httpOnly: true }); // 1 hour
+    // res.json({ user });
 }

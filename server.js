@@ -2,8 +2,10 @@ import express from "express";
 import cors from "cors";
 import routerRegister from "./routes/registerRoute.js";
 import mongoose from "mongoose";
-import dotenv from 'dotenv';
+import routerLogin from "./routes/loginRoute.js";
 
+import dotenv from 'dotenv';
+import productRouter from "./routes/productRoute.js";
 dotenv.config();
 
 mongoose
@@ -19,6 +21,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/v1/users', routerRegister)
+app.use('/api/v1/users', routerLogin)
+app.use('/api/v1/products', productRouter)
 
 
 
